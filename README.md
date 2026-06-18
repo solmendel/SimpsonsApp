@@ -4,15 +4,9 @@
 **Materia:** Desarrollo de Aplicaciones I — UADE FAIN  
 **Parcial:** 2do Parcial · 1er Cuatrimestre 2026
 
----
-
-## Introducción
-
-Este fork forma parte de la entrega del segundo parcial. El objetivo fue analizar el código de la app, identificar los 10 errores intencionales que dejó el docente, y explicar por qué cada uno es un problema y cómo debería corregirse.
-
-Los errores abarcan distintas categorías: algunos impedían que la app compilara, otros causaban crashes en runtime, y otros son problemas de arquitectura, convenciones de Kotlin o buenas prácticas que un desarrollador experimentado detectaría en una revisión de código.
 
 ---
+ERRORES
 
 ## Error 1 — `Episode.kt` · Líneas 13-15
 
@@ -23,7 +17,6 @@ init {
     return Episode; //NO BORRAR
 }
 ```
-
 **¿Qué está mal?**  
 El bloque `init` existe únicamente dentro de clases. Acá está suelto a nivel de archivo, lo cual es directamente inválido en Kotlin y hace que la app no compile. Encima, aunque estuviera dentro de una clase, los bloques `init` no retornan valores — eso tampoco tiene sentido.
 
